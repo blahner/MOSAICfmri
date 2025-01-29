@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ - Research Project</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="faq.html">FAQ</a>
+    </nav>
+
+    <div class="container">
+        <h1 class="project-title">Frequently Asked Questions</h1>
+        
+        <div class="faq-container">
+            <div class="faq-item">
+                <div class="faq-question">
+                    What is MOSAIC?
+                    <span class="arrow">▼</span>
+                </div>
+                <div class="faq-answer">
+                    MOSAIC (<b>M</b>eta-<b>O</b>rganization of <b>S</b>timuli <b>A</b>nd <b>I</b>maging data <b>C</b>ollections) is a procedure to 
+                    aggregate individual fMRI datasets to achieve scale in terms of number of subjects, number of stimuli, diversity of stimuli, and amount of brain data. 
+                    The procedure has two main components to (1) register and preprocess fMRI data using a shared pipeline and (2) resolve stimuli test/train set conflicts.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    Why is MOSAIC useful?
+                    <span class="arrow">▼</span>
+                </div>
+                <div class="faq-answer">
+                    The MOSAIC framework increases the number of subjects, stimuli, and amount of brain data to achieve scale and diversity impossible with just a single research group.
+                    MOSAIC allows stringent tests of generalizability across held-out datasets and subjects and can support data-hungry analysis techniques, such as training brain-optimized
+                    models. It also provides the necessary scaffolding for methodological advancements, such as inter-subject and inter-dataset functional alignment or optimizing preprocessing pipelines.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    How did you select the datasets incorporated into this initial release of MOSAIC?
+                    <span class="arrow">▼</span>
+                </div>
+                <div class="faq-answer">
+                    We scoped dataset selection to fMRI, vision, event-related experimental design, large scale (in terms of number of subjects, stimuli, or repetitions), and publicly available in BIDS format.
+                    Therefore, long-form movie, audio-visual, and M/EEG datasets, and small-scale datasets are some examples of what were excluded for this initial release. However, researchers are more than
+                    welcome to add datasets for another version of MOSAIC! 
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    Can I add more datasets to MOSAIC?
+                    <span class="arrow">▼</span>
+                </div>
+                <div class="faq-answer">
+                    Yes! Researchers can add other datasets post-hoc. In this way the MOSAIC dataset
+                    can flexibly incorporate the latest dataset and evolve alongside advances in experimental design and methodology.
+                    Any additions will be community-driven, meaning there will be no "official" additions to MOSAIC. If you edit this initial
+                    release of MOSAIC, be sure to clearly document the changes and release the relevant code/data. 
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    Do you have any insights for training a brain-optimized network?
+                    <span class="arrow">▼</span>
+                </div>
+                <div class="faq-answer">
+                    Training brain-optimized networks is still relatively new, and cross-subject, cross-dataset, and the amount of noise in fMRI data 
+                    can make training tricky. Informally, we have found:
+                    <ul>
+                        <li>
+                            Predicting trial-averaged fMRI responses works much better than single-trial responses. Single-trial responses have more
+                            noise and selecting a random single-trial as a target can make it extremely difficult for the model to learn.
+                        </li>
+                        <li>
+                            MSE loss alone can lead to the model optimizing for a handful of vertices. The train/val loss curve may seem healthy, but other 
+                            metrics, such as voxelwise encoding, may be poor. Adding a smoothness term (e.g., enforcing neighboring vertices to be similar values)
+                            helps address this issue.
+                        </li>
+                        <li>
+                            Subject-specific batches can be important if your loss function uses batch-wise reliability metrics.
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    Are there any licensing restrictions when using this dataset?
+                    <span class="arrow">▼</span>
+                </div>
+                <div class="faq-answer">
+                    Yes. We expect every user to abide by each individual dataset's own licensing and terms of use. Unfortunately, licensing can 
+                    get a bit complicated. The fMRI data itself usually comes with far fewer restrictions than the associated stimuli, so do your
+                    diligence when using the data and preparing a manuscript.
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
