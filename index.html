@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MOSAIC: A scalable framework for fMRI dataset aggregation and modeling of human vision</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+</head>
+<body>
+    <div class="container">        
+        <div class="content">
+            <img src="images/mosaic_logo.png" alt="MOSAIC logo" class="hero-image">
+            <h1>A scalable framework for fMRI dataset aggregation and modeling of human vision</h1>
+            
+            <div class="authors">
+                Benjamin Lahner<sup>1,2,3,4</sup>, Mayukh Deb<sup>5,6</sup>, Apurva Ratan Murty<sup>5,6</sup>, Aude Oliva<sup>1</sup>
+            </div>
+            
+            <div class="affiliations">
+                <div><sup>1</sup> Computer Science and Artificial Intelligence Laboratory, MIT, Cambridge, MA, USA.</div>
+                <div><sup>2</sup> Department of Ophthalmology, Byers Eye Institute, Stanford University School of Medicine, Stanford University, Stanford, CA, USA.</div>
+                <div><sup>3</sup> Stanford Bio-X, Stanford University, Stanford, CA, USA.</div>
+                <div><sup>4</sup> Wu Tsai Neurosciences Institute, Stanford University, Stanford, CA, USA.</div>
+                <div><sup>5</sup> Cognition and Brain Science, School of Psychology, Georgia Tech, Atlanta, GA, USA.</div>
+                <div><sup>6</sup> Computational Cognition, Georgia Tech, Atlanta, GA, USA.</div>
+            </div>
+
+            <div class="links">
+                <a href="paper.pdf" class="link-button">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/>
+                    </svg>
+                    <span>Paper (Coming Soon)</span>
+                </a>
+                <a href="https://github.com/blahner/mosaic-preprocessing" class="link-button">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                    </svg>
+                    <span>Preprocessing Code</span>
+                </a>                
+                <a href="https://aws.amazon.com/marketplace/pp/prodview-vsoockzeptxzw" class="link-button">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z"/>
+                    </svg>
+                    <span>Dataset</span>
+                </a>
+            </div>
+
+            <section>
+                <h2>Abstract</h2>
+                <p class="abstract">
+                    Recent large-scale vision fMRI datasets have been invaluable resources to the vision neuroscience community for their deep sampling of individual subjects and diverse stimulus sets. However, practical limitations to the number of subjects, stimuli, and trials that can be collected prevent individual fMRI datasets from reaching the scale necessary for modern modeling approaches and robust conclusions. Here, we introduce MOSAIC (Meta-Organized Stimuli And fMRI Imaging data for Computational modeling), a fMRI dataset aggregation framework designed to leverage the richness of individual datasets for computationally intensive modeling and robust tests of generalization. MOSAIC is composed of eight large-scale vision fMRI datasets totaling 93 subjects, 430,007 fMRI-stimulus pairs, and 162,839 naturalistic and artificial stimuli. A shared fMRI preprocessing pipeline and a filtered test-train split minimizes dataset-specific confounds and test-set leakage when aggregating the datasets. Crucially, this rigorous procedure can be applied to additional datasets post-hoc, allowing MOSAIC to evolve according to the community's interests. We use MOSAIC to show that perceptually diverse stimulus sets consistently improve decoding accuracy and stability, carrying implications for future fMRI stimulus set design. We then jointly train brain-optimized encoding models across subjects and datasets to predict fMRI activity of all visual cortex and even the whole brain. In silico functional localizer experiments performed on these digital twin models are able to recover subject-specific category-selective cortical regions. Together, MOSAIC provides a scalable and community-driven solution to build robust models of human vision.                  
+                </p>
+            </section>
+
+            <section>
+                <h2>Get started with MOSAIC in seconds!</h2>
+                <p class="abstract">
+                    Use our <a href="https://github.com/murtylab/mosaic-dataset">Python package</a> to access eight of the largest fMRI datasets in just a few lines of code! 
+                </p>
+<div class="code-box">
+    <pre><code class="language-bash">pip install mosaic-dataset</code></pre>
+</div>
+<div class="code-box">
+    <pre><code class="language-python">import mosaic
+
+dataset = mosaic.load(
+    names_and_subjects={
+        "NSD": [2,3],
+        "deeprecon": "all",
+    },
+    folder="./MOSAIC" 
+)
+
+print(dataset[0])</code></pre>
+            </div>
+            <p class="abstract">
+                Alternatively, you can browse the S3 bucket to download data manually or use the the AWS command line interface. See instructions in the Data link above.
+            </p>
+            </section>
+            <section>
+                <h2>Acknowledgements</h2>
+                <p class="abstract">
+                    Thank you to the Amazon's AWS Open Data Sponsorship Program for hosting the data and the Multidisciplinary University Research Initiative (MURI) award by the Army Research Office (grant No. W911NF-23-1-0277) to A.O.
+            </section>
+            <section>
+                <h2>Citation</h2>
+                <div class="citation-box">
+                    <button class="copy-button" onclick="copyBibtex()">Copy</button>
+                    <pre>Coming Soon!</pre>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <script>
+        function copyBibtex() {
+            const bibtex = 'Coming Soon!';
+            
+            navigator.clipboard.writeText(bibtex).then(() => {
+                const button = document.querySelector('.copy-button');
+                button.textContent = 'Copied!';
+                button.classList.add('copied');
+                setTimeout(() => {
+                    button.textContent = 'Copy';
+                    button.classList.remove('copied');
+                }, 2000);
+            });
+        }
+    </script>
+</body>
+</html>
