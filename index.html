@@ -102,8 +102,12 @@ dataset = mosaic.load(
 print(dataset[0])</code></pre>
                 </div>
                 <p class="abstract">
-                    Alternatively, you can browse the S3 bucket to download data manually or use the the AWS command line interface. See instructions in the Data link above.
+                    Alternatively, you can browse the <a href="https://mosaicfmri.s3.amazonaws.com/index.html" target="_blank">S3 bucket</a> to download data manually or use the <a href="https://aws.amazon.com/cli/" target="_blank">AWS command line interface</a>.
                 </p>
+                <div class="code-box">
+                    <button class="copy-code-button" onclick="copyCode(this)">Copy</button>
+                    <pre><code class="language-bash">aws s3 ls --no-sign-request s3://mosaicfmri/</code></pre>
+                </div>
             </section>
 
             <section>
