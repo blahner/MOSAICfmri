@@ -28,6 +28,27 @@
                 <div><sup>6</sup> Computational Cognition, Georgia Tech, Atlanta, GA, USA.</div>
             </div>
 
+            <!-- Stats Counter Section -->
+            <div class="stats-section">
+                <div class="stat-item">
+                    <div class="stat-number" data-target="8">0</div>
+                    <div class="stat-label">Datasets</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number" data-target="93">0</div>
+                    <div class="stat-label">Subjects</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number" data-target="162839">0</div>
+                    <div class="stat-label">Stimuli</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number" data-target="430006">0</div>
+                    <div class="stat-label">Trials</div>
+                </div>
+                <div class="stats-footer">and counting...</div>
+            </div>
+
             <div class="links">
                 <a href="paper.pdf" class="link-button">
                     <svg viewBox="0 0 24 24" fill="currentColor">
@@ -50,10 +71,11 @@
             </div>
 
             <section>
-                <h2>Abstract</h2>
+                <h2>Why MOSAIC?</h2>
                 <p class="abstract">
-                    Recent large-scale vision fMRI datasets have been invaluable resources to the vision neuroscience community for their deep sampling of individual subjects and diverse stimulus sets. However, practical limitations to the number of subjects, stimuli, and trials that can be collected prevent individual fMRI datasets from reaching the scale necessary for modern modeling approaches and robust conclusions. Here, we introduce MOSAIC (Meta-Organized Stimuli And fMRI Imaging data for Computational modeling), a fMRI dataset aggregation framework designed to leverage the richness of individual datasets for computationally intensive modeling and robust tests of generalization. MOSAIC is composed of eight large-scale vision fMRI datasets totaling 93 subjects, 430,007 fMRI-stimulus pairs, and 162,839 naturalistic and artificial stimuli. A shared fMRI preprocessing pipeline and a filtered test-train split minimizes dataset-specific confounds and test-set leakage when aggregating the datasets. Crucially, this rigorous procedure can be applied to additional datasets post-hoc, allowing MOSAIC to evolve according to the community's interests. We use MOSAIC to show that perceptually diverse stimulus sets consistently improve decoding accuracy and stability, carrying implications for future fMRI stimulus set design. We then jointly train brain-optimized encoding models across subjects and datasets to predict fMRI activity of all visual cortex and even the whole brain. In silico functional localizer experiments performed on these digital twin models are able to recover subject-specific category-selective cortical regions. Together, MOSAIC provides a scalable and community-driven solution to build robust models of human vision.                  
+                    Computational neuroscience needs <b>massive scale</b>, <b>diverse stimuli</b>, and <b>generalizable results</b>. Individual experiments cannot get us there. MOSAIC unifies existing (and future) fMRI datasets with a shared preprocessing pipeline and a cross-dataset test/train data split. Now researchers can train bigger brain models, test results across datasets, and contribute their own datasets to shape the future of MOSAIC and computational neuroscience.
                 </p>
+                <img src="images/stimulus_set_stats_webpage.png" class="hero-image">
             </section>
 
             <section>
@@ -61,11 +83,13 @@
                 <p class="abstract">
                     Use our <a href="https://github.com/murtylab/mosaic-dataset">Python package</a> to access eight of the largest fMRI datasets in just a few lines of code! 
                 </p>
-<div class="code-box">
-    <pre><code class="language-bash">pip install mosaic-dataset</code></pre>
-</div>
-<div class="code-box">
-    <pre><code class="language-python">import mosaic
+                <div class="code-box">
+                    <button class="copy-code-button" onclick="copyCode(this)">Copy</button>
+                    <pre><code class="language-bash">pip install mosaic-dataset</code></pre>
+                </div>
+                <div class="code-box">
+                    <button class="copy-code-button" onclick="copyCode(this)">Copy</button>
+                    <pre><code class="language-python">import mosaic
 
 dataset = mosaic.load(
     names_and_subjects={
@@ -76,16 +100,26 @@ dataset = mosaic.load(
 )
 
 print(dataset[0])</code></pre>
-            </div>
-            <p class="abstract">
-                Alternatively, you can browse the S3 bucket to download data manually or use the the AWS command line interface. See instructions in the Data link above.
-            </p>
+                </div>
+                <p class="abstract">
+                    Alternatively, you can browse the S3 bucket to download data manually or use the the AWS command line interface. See instructions in the Data link above.
+                </p>
             </section>
+
+            <section>
+                <h2>Abstract</h2>
+                <p class="abstract">
+                    Recent large-scale vision fMRI datasets have been invaluable resources to the vision neuroscience community for their deep sampling of individual subjects and diverse stimulus sets. However, practical limitations to the number of subjects, stimuli, and trials that can be collected prevent individual fMRI datasets from reaching the scale necessary for modern modeling approaches and robust conclusions. Here, we introduce MOSAIC (Meta-Organized Stimuli And fMRI Imaging data for Computational modeling), a fMRI dataset aggregation framework designed to leverage the richness of individual datasets for computationally intensive modeling and robust tests of generalization. MOSAIC is composed of eight large-scale vision fMRI datasets totaling 93 subjects, 430,007 fMRI-stimulus pairs, and 162,839 naturalistic and artificial stimuli. A shared fMRI preprocessing pipeline and a filtered test-train split minimizes dataset-specific confounds and test-set leakage when aggregating the datasets. Crucially, this rigorous procedure can be applied to additional datasets post-hoc, allowing MOSAIC to evolve according to the community's interests. We use MOSAIC to show that perceptually diverse stimulus sets consistently improve decoding accuracy and stability, carrying implications for future fMRI stimulus set design. We then jointly train brain-optimized encoding models across subjects and datasets to predict fMRI activity of all visual cortex and even the whole brain. In silico functional localizer experiments performed on these digital twin models are able to recover subject-specific category-selective cortical regions. Together, MOSAIC provides a scalable and community-driven solution to build robust models of human vision.                  
+                </p>
+            </section>
+
             <section>
                 <h2>Acknowledgements</h2>
                 <p class="abstract">
                     Thank you to the Amazon's AWS Open Data Sponsorship Program for hosting the data and the Multidisciplinary University Research Initiative (MURI) award by the Army Research Office (grant No. W911NF-23-1-0277) to A.O.
+                </p>
             </section>
+
             <section>
                 <h2>Citation</h2>
                 <div class="citation-box">
@@ -110,6 +144,67 @@ print(dataset[0])</code></pre>
                 }, 2000);
             });
         }
+
+        function copyCode(button) {
+            const codeBlock = button.nextElementSibling.querySelector('code');
+            const code = codeBlock.textContent;
+            
+            navigator.clipboard.writeText(code).then(() => {
+                button.textContent = 'Copied!';
+                button.classList.add('copied');
+                setTimeout(() => {
+                    button.textContent = 'Copy';
+                    button.classList.remove('copied');
+                }, 2000);
+            });
+        }
+
+        // Animated counter for statistics
+        function animateCounter(element) {
+            const target = parseInt(element.getAttribute('data-target'));
+            const duration = 5000; // 2 seconds
+            const increment = target / (duration / 16); // 60fps
+            let current = 0;
+            
+            const timer = setInterval(() => {
+                current += increment;
+                if (current >= target) {
+                    current = target;
+                    clearInterval(timer);
+                }
+                
+                // Format large numbers with commas
+                if (target >= 1000) {
+                    element.textContent = Math.floor(current).toLocaleString();
+                } else {
+                    element.textContent = Math.floor(current);
+                }
+            }, 16);
+        }
+
+        // Intersection Observer to trigger animation when visible
+        const observerOptions = {
+            threshold: 0.5,
+            rootMargin: '0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting && !entry.target.classList.contains('animated')) {
+                    entry.target.classList.add('animated');
+                    const statNumbers = entry.target.querySelectorAll('.stat-number');
+                    statNumbers.forEach(animateCounter);
+                }
+            });
+        }, observerOptions);
+
+        // Start observing when DOM is loaded
+        document.addEventListener('DOMContentLoaded', () => {
+            const statsSection = document.querySelector('.stats-section');
+            if (statsSection) {
+                observer.observe(statsSection);
+            }
+        });
     </script>
 </body>
 </html>
