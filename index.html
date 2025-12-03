@@ -140,7 +140,7 @@ bioRxiv 2025.11.28.690060; doi: https://doi.org/10.64898/2025.11.28.690060</pre>
 
     <script>
         function copyBibtex() {
-            const bibtex = 'Coming Soon!';
+            const bibtex = document.querySelector('.citation-box pre').textContent;
             
             navigator.clipboard.writeText(bibtex).then(() => {
                 const button = document.querySelector('.copy-button');
